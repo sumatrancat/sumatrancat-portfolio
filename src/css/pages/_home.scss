@@ -1,16 +1,19 @@
 #home {
   height: 100vh;
   position: relative;
-  padding-top: 125px;
+  // padding-top: 125px;
 }
 
 .home-title {
-  font-size: 70px;
+  font-size: 80px;
   // font-size: clamp(4.6656rem, 1.6445rem + 15.1054vw, 13.3513rem);
   font-family: var(--font-display);
   text-align: center;
   line-height: 1.1;
-  // text-transform: uppercase;
+  font-weight: 900;
+  position: relative;
+  top: 125px;
+  text-transform: uppercase;
 }
 
 
