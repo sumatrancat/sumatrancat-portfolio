@@ -1,5 +1,5 @@
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat12.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
 
 const artboardSC = loadArtboard('Sumatrancat', '.ab-sc')
 const artboardDesk = loadArtboard('Desk', '.ab-desk')
