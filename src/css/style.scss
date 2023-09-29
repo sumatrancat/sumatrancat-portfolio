@@ -1,0 +1,16 @@
+@import 'utils/mdqs';
+
+@import 'base/font';
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/container';
+
+@import 'components/header';
+
+@import 'pages/home';
+
+body {
+  background-color: var(--color-peach);
+  font-family: var(--font-body);
+  overflow: hidden;
+}

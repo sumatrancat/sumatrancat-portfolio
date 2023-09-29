@@ -1,0 +1,142 @@
+#home {
+  height: 100vh;
+  position: relative;
+  padding-top: 125px;
+}
+
+.home-title {
+  font-size: 70px;
+  // font-size: clamp(4.6656rem, 1.6445rem + 15.1054vw, 13.3513rem);
+  font-family: var(--font-display);
+  text-align: center;
+  line-height: 1.1;
+  // text-transform: uppercase;
+}
+
+
+
+// rive code
+#rive {
+  display: inline-block;
+  position: absolute;
+  // width: 25%; // same width as design
+  width: 22.5%; // same width as design
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+canvas {
+  width: 100%;
+  position: relative;
+}
+
+.ab-wrapper {
+  position: relative;
+}
+
+.ab-wrapper:not(#character) {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.page-trigger {
+  position: absolute;
+  border-radius: 3%;
+  background-color: red;
+  opacity: 0;
+}
+
+#desk.ab-wrapper {
+  left: -120%;
+
+  #work-trigger {
+    width: 62%;
+    height: 31.85%;
+    top: 26%;
+    left: 20%;
+  }
+
+  .screen {
+    position: absolute;
+    width: 57%;
+    height: 29.5%;
+    top: 27.25%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+  }
+
+  .content {
+    color: white;
+    letter-spacing: 2;
+    font-size: 200%;
+  }
+}
+
+#music.ab-wrapper {
+  left: unset;
+  right: -110%;
+}
+
+#social-resume.ab-wrapper {
+  width: 62.5%;
+  bottom: unset;
+  left: unset;
+  top: -60%;
+  right: -140%;
+
+  .social-links {
+    position: absolute;
+    top: 5.5%;
+    left: 50%;
+    width: 80%;
+    height: 15%;
+    transform: translateX(-50%);
+    // background-color: purple;
+
+    .page-trigger {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 29%;
+      border-radius: 10%;
+      &:nth-child(2) {
+        left: 35.5%;
+      }
+      &:nth-child(3) {
+        left: 71%;
+      }
+    }
+  }
+
+  #resume-trigger {
+    width: 54.5%;
+    height: 27.25%;
+    bottom: 5.25%;
+    left: 24.5%;
+    border-radius: 7%;
+  }
+}
+
+#floor {
+  position: absolute;
+  bottom: 0;
+  left: -120%;
+  right: -120%;
+  height: 1.15%;
+  background-color: #f1c0ce;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+#tiang {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: red;
+  width: 1.15%;
+}
