@@ -1,21 +1,21 @@
 extends templates/layout
 
 block head
-  title Creative Developer
+  title Sumatrancat - Creative Developer
 
 block content
   section#home
     .content-wrapper
-      .container
-        h1.animated-title.
-          Creative<br>Developer
+      .title-wrapper
+        include includes/home-title.html
     .animation-wrapper
       //- better id and classes
       //- .canvas-wrapper(data-artboard="desk")
       #rive
         #desk.canvas-wrapper
-          video.screen(muted playsinline autoplay loop)
-            source(type="video/mp4" src="../../public/video/reel.mp4")
+          .screen
+          //- video.screen(muted playsinline autoplay loop)
+          //-   source(type="video/mp4" src="../../public/video/reel.mp4")
           canvas.artboard-desk(width="400" height="450")
           a#work-trigger.page-trigger(href="/work") 
         #music.canvas-wrapper

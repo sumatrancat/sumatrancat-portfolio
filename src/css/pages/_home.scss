@@ -1,3 +1,6 @@
+// "browserslist": "> 0.5%, last 3 versions, not dead, Safari 14",
+// add the code above below devDependencies to fix media queries issue
+
 #home {
   height: 100vh;
   height: 100dvh;
@@ -10,7 +13,7 @@
   }
 
   .content-wrapper {
-    padding-top: 50px;
+    padding-top: 100px;
     height: 46%;
     display: grid;
     align-items: center;
@@ -19,6 +22,45 @@
 
   .animation-wrapper {
     height: 54%;
+  }
+}
+
+@keyframes animate-type {
+  0% {
+    font-variation-settings: "wght" 100, "wdth" 0;
+  }
+  100% {
+    font-variation-settings: "wght" 900, "wdth" 100;
+  }
+}
+
+.title-wrapper {
+  width: 22.5%;
+  margin: auto;
+  // border: 1px solid red;
+  svg {
+    // border: 1px solid blue;
+    display: block;
+    width: 150%;
+    position: relative;
+    left: -25%;
+  }
+  #stars {
+    transform: translate(0, 10px);
+  }
+}
+
+@include below(md) {
+  .title-wrapper {
+    padding: 0 25px;
+    width: 100%;
+    svg {
+      width: 100%;
+      left: unset;
+    }
+    #stars {
+      position: relative;
+    }
   }
 }
 
@@ -31,11 +73,12 @@
   font-weight: 900;
   position: relative;
   text-transform: uppercase;
-  color: #C76480;
+  color: var(--color-peach-dark);
+  // animation: animate-type 2s infinite alternate;
 }
 
 // home responsive
-@include below(xs) {
+@include below(sm) {
   .animated-title {
     font-size: 50px;
   }
@@ -166,7 +209,7 @@
 }
 
 // rive responsive
-@include below(xs) {
+@include below(sm) {
   #home {
     .content-wrapper {
       height: 40%;
