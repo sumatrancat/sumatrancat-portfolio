@@ -16,10 +16,18 @@ header {
   }
 }
 
+.header-nav-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper {
+  margin-right: 30px;
+}
+
 .header-nav {
   display: flex;
   align-items: center;
-  // text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 1px;
 
@@ -31,5 +39,11 @@ header {
 .logo-wrapper {
   svg {
     width: 40px;
+  }
+}
+
+@include below(md) {
+  .header-nav {
+    display: none;
   }
 }

@@ -1,18 +1,19 @@
 #home {
   height: 100vh;
   position: relative;
-  // padding-top: 125px;
+  padding-top: 100px;
 }
 
 .home-title {
+  // top: 110px;
   font-size: 80px;
   font-family: var(--font-display);
   text-align: center;
   line-height: 1.1;
   font-weight: 900;
   position: relative;
-  top: 125px;
   text-transform: uppercase;
+  color: #C76480;
 }
 
 
@@ -26,6 +27,23 @@
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@include below(lg) {
+  #rive {
+    width: 300px;
+  }
+}
+
+@include below(sm) {
+  .home-title {
+    font-size: 60px;
+  }
+
+  #rive {
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
 canvas {
