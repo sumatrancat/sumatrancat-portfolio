@@ -1,5 +1,6 @@
 #home {
   height: 100vh;
+  height: 100dvh;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -169,6 +170,7 @@
   #home {
     .content-wrapper {
       height: 40%;
+      padding-top: 100px;
     }
     .animation-wrapper {
       height: 60%;
@@ -187,7 +189,7 @@
       height: 100%;
       margin: auto;
       object-fit: cover;
-      object-position: bottom;
+      aspect-ratio: 1/1;
 
       // max-width: 100%;
       // max-height: 100%;
