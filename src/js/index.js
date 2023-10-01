@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import { SplitText } from 'gsap/all'
+// import { SplitText } from 'gsap/all'
 
 const rive = require('@rive-app/canvas')
 const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
@@ -25,19 +25,17 @@ function loadArtboard(name, wrapper) {
   }
 }
 
-// gsap.registerPlugin(SplitText)
+const tl = gsap.timeline({
+  repeatDelay: 1,
+  repeat: -1
+})
+const $ = gsap.utils.selector('#home-title')
 
-// const animatedTitle = new SplitText('#home-title', {
-//   type: 'chars'
-// })
-// const tl = gsap.timeline({
-//   repeat: -1,
-//   yoyo: true
-// })
+const yo = $('#clip path')
 
-// tl
-//   .to('#home-title > div', {
-//     y: -15,
-//     stagger: .009,
-//     ease: 'power2.out'
-//   })
+tl
+  .to($('#clip path'), {
+    x: 650,
+    duration: 1,
+    ease: 'power4.out'
+  })

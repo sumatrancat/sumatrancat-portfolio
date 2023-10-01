@@ -34,7 +34,7 @@
   }
 }
 
-.title-wrapper {
+#home-title {
   width: 22.5%;
   margin: auto;
   // border: 1px solid red;
@@ -51,7 +51,7 @@
 }
 
 @include below(md) {
-  .title-wrapper {
+  #home-title {
     padding: 0 25px;
     width: 100%;
     svg {
