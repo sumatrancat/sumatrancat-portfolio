@@ -45,9 +45,6 @@
     position: relative;
     left: -25%;
   }
-  #stars {
-    transform: translate(0, 10px);
-  }
 }
 
 @include below(md) {
