@@ -1,10 +1,10 @@
 const rive = require('@rive-app/canvas')
 const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
 
-const artboardSC = loadArtboard('Sumatrancat', '.ab-sc')
-const artboardDesk = loadArtboard('Desk', '.ab-desk')
-const artboardMusic = loadArtboard('Music', '.ab-music')
-const artboardSocialResume = loadArtboard('SocialResume', '.ab-social-resume')
+const artboardSC = loadArtboard('Sumatrancat', '.artboard-sc')
+const artboardDesk = loadArtboard('Desk', '.artboard-desk')
+const artboardMusic = loadArtboard('Music', '.artboard-music')
+const artboardSocialResume = loadArtboard('SocialResume', '.artboard-social-resume')
 
 function loadArtboard(name, wrapper) {
   if(riveFile) {

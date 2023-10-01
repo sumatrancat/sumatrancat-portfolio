@@ -1,11 +1,28 @@
 #home {
   height: 100vh;
   position: relative;
-  padding-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    width: 100%;
+  }
+
+  .content-wrapper {
+    padding-top: 50px;
+    height: 46%;
+    display: grid;
+    align-items: center;
+    text-align: center;
+  }
+
+  .animation-wrapper {
+    height: 54%;
+  }
 }
 
-.home-title {
-  // top: 110px;
+.animated-title {
+  display: inline-block;
   font-size: 80px;
   font-family: var(--font-display);
   text-align: center;
@@ -16,147 +33,169 @@
   color: #C76480;
 }
 
-
-
-// rive code
-#rive {
-  display: inline-block;
-  position: absolute;
-  // width: 25%; // same width as design
-  width: 22.5%; // same width as design
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@include below(lg) {
-  #rive {
-    width: 300px;
-  }
-}
-
-@include below(sm) {
-  .home-title {
+// home responsive
+@include below(xs) {
+  .animated-title {
     font-size: 60px;
   }
+}
 
-  #rive {
+
+
+/* ====== RIVE ===== */
+
+#rive {
+  display: block;
+  position: relative;
+  margin: auto;
+  width: 22.5%; // same width as design
+
+  canvas {
     width: 100%;
-    overflow: hidden;
-  }
-}
-
-canvas {
-  width: 100%;
-  position: relative;
-}
-
-.ab-wrapper {
-  position: relative;
-}
-
-.ab-wrapper:not(#character) {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-}
-
-.page-trigger {
-  position: absolute;
-  border-radius: 3%;
-  background-color: red;
-  opacity: 0;
-}
-
-#desk.ab-wrapper {
-  left: -120%;
-
-  #work-trigger {
-    width: 62%;
-    height: 31.85%;
-    top: 26%;
-    left: 20%;
+    position: relative;
   }
 
-  .screen {
+  .canvas-wrapper {
+    position: relative;
+  }
+
+  .canvas-wrapper:not(#character) {
     position: absolute;
-    width: 57%;
-    height: 29.5%;
-    top: 27.25%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: black;
+    width: 100%;
+    left: 0;
+    bottom: 0;
   }
 
-  .content {
-    color: white;
-    letter-spacing: 2;
-    font-size: 200%;
-  }
-}
+  #character {
+    position: relative;
 
-#music.ab-wrapper {
-  left: unset;
-  right: -110%;
-}
-
-#social-resume.ab-wrapper {
-  width: 62.5%;
-  bottom: unset;
-  left: unset;
-  top: -60%;
-  right: -140%;
-
-  .social-links {
-    position: absolute;
-    top: 5.5%;
-    left: 50%;
-    width: 80%;
-    height: 15%;
-    transform: translateX(-50%);
-    // background-color: purple;
-
-    .page-trigger {
-      top: 0;
+    // floor
+    &:before {
+      content: '';
+      position: absolute;
       bottom: 0;
-      left: 0;
-      width: 29%;
-      border-radius: 10%;
-      &:nth-child(2) {
-        left: 35.5%;
-      }
-      &:nth-child(3) {
-        left: 71%;
-      }
+      left: -120%;
+      right: -120%;
+      height: 1.15%;
+      background-color: #f1c0ce;
+      border-radius: 10px;
+      z-index: -1;
     }
   }
 
-  #resume-trigger {
-    width: 54.5%;
-    height: 27.25%;
-    bottom: 5.25%;
-    left: 24.5%;
-    border-radius: 7%;
+  #desk.canvas-wrapper {
+    left: -120%;
+
+    #work-trigger {
+      width: 62%;
+      height: 31.85%;
+      top: 26%;
+      left: 20%;
+    }
+
+    .screen {
+      position: absolute;
+      width: 57%;
+      height: 29.5%;
+      top: 27.25%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: black;
+    }
+
+    .content {
+      color: white;
+      letter-spacing: 2;
+      font-size: 200%;
+    }
   }
+
+  #music.canvas-wrapper {
+    left: unset;
+    right: -110%;
+  }
+
+  #social-resume.canvas-wrapper {
+    width: 62.5%;
+    bottom: unset;
+    left: unset;
+    top: -60%;
+    right: -140%;
+
+    .social-links {
+      position: absolute;
+      top: 5.5%;
+      left: 50%;
+      width: 80%;
+      height: 15%;
+      transform: translateX(-50%);
+      // background-color: purple;
+
+      .page-trigger {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 29%;
+        border-radius: 10%;
+        &:nth-child(2) {
+          left: 35.5%;
+        }
+        &:nth-child(3) {
+          left: 71%;
+        }
+      }
+    }
+
+    #resume-trigger {
+      width: 54.5%;
+      height: 27.25%;
+      bottom: 5.25%;
+      left: 24.5%;
+      border-radius: 7%;
+    }
+  }
+  
+  .page-trigger {
+    position: absolute;
+    border-radius: 3%;
+    background-color: red;
+    opacity: 0;
+  }
+
 }
 
-#floor {
-  position: absolute;
-  bottom: 0;
-  left: -120%;
-  right: -120%;
-  height: 1.15%;
-  background-color: #f1c0ce;
-  border-radius: 10px;
-  z-index: -1;
-}
+// rive responsive
+@include below(xs) {
+  #home {
+    .content-wrapper {
+      height: 40%;
+    }
+    .animation-wrapper {
+      height: 60%;
+    }
+  }
 
-#tiang {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background: red;
-  width: 1.15%;
+  #rive {
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+
+    .canvas-wrapper {
+      width: 100%;
+    }
+
+    canvas {
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+    }
+
+    #character {
+      &:before {
+        left: 50px;
+        right: 50px;
+      }
+    }
+  }
 }

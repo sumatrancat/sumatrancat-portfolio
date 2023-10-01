@@ -5,25 +5,27 @@ block head
 
 block content
   section#home
-    .container
-      .content
-        h1.home-title.
+    .content-wrapper
+      .container
+        h1.animated-title.
           Creative<br>Developer
-    #rive
-      #floor
-      #desk.ab-wrapper
-        video.screen(muted playsinline autoplay loop)
-          source(type="video/mp4" src="../../public/video/reel.mp4")
-        canvas.ab-desk(width="400" height="450")
-        a#work-trigger.page-trigger(href="/work") 
-      #music.ab-wrapper
-        canvas.ab-music(width="400" height="350")
-      #social-resume.ab-wrapper
-        canvas.ab-social-resume(width="250" height="270")
-        .social-links
-          a(href="https://twitter.com/sumatrancat" target="_blank").page-trigger
-          a(href="https://youtube.com/@sumatrancat" target="_blank").page-trigger
-          a(href="https://github.com/sumatrancat" target="_blank").page-trigger
-        a#resume-trigger.page-trigger(href="/resume") 
-      #character.ab-wrapper
-        canvas.ab-sc(width="400" height="400")
+    .animation-wrapper
+      //- better id and classes
+      //- .canvas-wrapper(data-artboard="desk")
+      #rive
+        #desk.canvas-wrapper
+          video.screen(muted playsinline autoplay loop)
+            source(type="video/mp4" src="../../public/video/reel.mp4")
+          canvas.artboard-desk(width="400" height="450")
+          a#work-trigger.page-trigger(href="/work") 
+        #music.canvas-wrapper
+          canvas.artboard-music(width="400" height="350")
+        #social-resume.canvas-wrapper
+          canvas.artboard-social-resume(width="250" height="270")
+          .social-links
+            a(href="https://twitter.com/sumatrancat" target="_blank").page-trigger
+            a(href="https://youtube.com/@sumatrancat" target="_blank").page-trigger
+            a(href="https://github.com/sumatrancat" target="_blank").page-trigger
+          a#resume-trigger.page-trigger(href="/resume") 
+        #character.canvas-wrapper
+          canvas.artboard-sc(width="400" height="400")
