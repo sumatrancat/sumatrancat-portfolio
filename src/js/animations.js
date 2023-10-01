@@ -41,6 +41,7 @@ export function rive() {
 }
 
 export function loader() {
+  const duration = .85
   const $ = gsap.utils.selector('#loader')
   const tl = gsap.timeline({
     onComplete: () => {
@@ -59,7 +60,7 @@ export function loader() {
           return window.innerHeight/2 + 500
         }
       },
-      duration: .6,
+      duration: duration,
       ease: 'power2.out'
     })
     .to($('#clip-layer-1 circle'), {
@@ -70,7 +71,7 @@ export function loader() {
           return window.innerHeight/2 + 500
         }
       },
-      duration: .6,
+      duration: duration,
       ease: 'power2.out'
-    }, .15)
+    }, .2)
 }

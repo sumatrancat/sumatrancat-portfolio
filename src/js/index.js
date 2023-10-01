@@ -16,7 +16,7 @@ class App {
 
   loaderSetup() {
     setup.loader()
-    setup.rive()
+    // setup.rive()
     setup.homeTitle()
   }
 
@@ -49,7 +49,7 @@ class App {
 
   play() {
     animations.loader()
-    animations.rive()
+    // animations.rive()
     animations.homeTitle()
   }
 }

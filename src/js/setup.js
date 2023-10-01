@@ -6,7 +6,7 @@ export function loader() {
   tl
     .set($('#loader-svg circle'), {
       cx: () => window.innerWidth/2,
-      cy: () => window.innerHeight
+      cy: () => window.innerHeight/1
     })
 }
 
