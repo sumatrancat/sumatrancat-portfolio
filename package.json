@@ -12,7 +12,9 @@
     "@parcel/transformer-sass": "^2.9.3",
     "parcel": "^2.9.3"
   },
+  "browserslist": "> 0.5%, last 3 versions, not dead, Safari 14",
   "dependencies": {
-    "@rive-app/canvas": "^2.4.0"
+    "@rive-app/canvas": "^2.4.0",
+    "browserslist": "^4.22.1"
   }
 }

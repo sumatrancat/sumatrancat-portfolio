@@ -27,7 +27,7 @@ $breakpoints: (
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
     // Write the media query.
-    @media (min-width: $breakpoint-value) {
+    @media screen and (min-width: $breakpoint-value) {
       @content;
     }
   
@@ -54,7 +54,7 @@ $breakpoints: (
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
     // Write the media query.
-    @media (max-width: ($breakpoint-value - 1)) {
+    @media screen and (max-width: ($breakpoint-value - 1)) {
       @content;
     }
   
@@ -82,7 +82,7 @@ $breakpoints: (
     $upper-breakpoint: map-get($breakpoints, $upper);
 
     // Write the media query.
-    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+    @media screen and (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
       @content;
     }
   

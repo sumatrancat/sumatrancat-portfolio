@@ -45,5 +45,6 @@ header {
 @include below(md) {
   .header-nav {
     display: none;
+    opacity: .25;
   }
 }
