@@ -1,34 +1,53 @@
 import gsap from 'gsap'
+import { CustomEase } from 'gsap/all'
+gsap.registerPlugin(CustomEase)
 
 export function homeTitle() {
   const $ = gsap.utils.selector('#home .content-wrapper')
+  CustomEase.create('easeInOutCirc', '.85, 0, .15, 1')
 
   // light animation
-  gsap.to($('#clip path'), {
-    x: 650,
-    duration: 1.5,
-    ease: 'power4.out',
-    repeat: -1,
-    repeatDelay: 1
-  })
+  const tl = gsap.timeline({})
+  tl
+    .set('use', {
+      delay: .3,
+      display: 'block'
+    })
+    .to($('#clip path'), {
+      x: 650,
+      duration: 1.5,
+      ease: 'easeInOutCirc',
+      repeat: -1,
+      repeatDelay: 1
+    })
   
-  gsap.to($('#home-title'), {
-    delay: .5,
+  gsap.to($('#stagger-text path'), {
+    delay: .4,
     opacity: 1,
-    y: 0
-  })
-
-  gsap.to($('#home-title #stars path:first-child'), {
-    scale: 1,
-    rotate: 0,
-    repeat: -1,
-    repeatDelay: 1,
+    y: 0,
+    stagger: .035,
+    ease: 'power2.out',
     onComplete: () => {
-      gsap.to($('#home-title #stars path:first-child'), {
-        scale: 0
+      gsap.set($('#stagger-text'), {
+        display: 'none'
+      })
+      gsap.set($('#main-text'), {
+        display: 'block'
       })
     }
   })
+
+  // gsap.to($('#stars path:first-child'), {
+  //   scale: 1,
+  //   rotate: 0,
+  //   repeat: -1,
+  //   repeatDelay: 1,
+  //   onComplete: () => {
+  //     gsap.to($('#home-title #stars path:first-child'), {
+  //       scale: 0
+  //     })
+  //   }
+  // })
 }
 
 export function rive() {
@@ -41,7 +60,7 @@ export function rive() {
 }
 
 export function loader() {
-  const duration = .85
+  const duration = 1.25
   const $ = gsap.utils.selector('#loader')
   const tl = gsap.timeline({
     onComplete: () => {
@@ -61,7 +80,7 @@ export function loader() {
         }
       },
       duration: duration,
-      ease: 'power2.out'
+      ease: 'expo.out'
     })
     .to($('#clip-layer-1 circle'), {
       r: () => {
@@ -72,6 +91,6 @@ export function loader() {
         }
       },
       duration: duration,
-      ease: 'power2.out'
+      ease: 'expo.out'
     }, .2)
 }

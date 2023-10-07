@@ -18,12 +18,19 @@ export function rive() {
 
 export function homeTitle() {
   const tl = gsap.timeline()
+  const $ = gsap.utils.selector('#home-title')
   tl
-    .set('#home-title', {
-      opacity: 0,
-      y: 30
+    .set($('#main-text'), {
+      display: 'none'
     })
-    .set('#home-title #stars path', {
+    .set('use', {
+      display: 'none'
+    })
+    .set('#stagger-text path', {
+      y: 25,
+      opacity: 0
+    })
+    .set('#stars path', {
       scale: 0,
       rotate: 360,
       transformOrigin: 'center center'
