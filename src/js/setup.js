@@ -32,7 +32,7 @@ export function homeTitle() {
     })
     .set('#stars path', {
       scale: 0,
-      rotate: 360,
+      opacity: 0,
       transformOrigin: 'center center'
     })
 }

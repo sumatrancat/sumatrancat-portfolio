@@ -20,6 +20,12 @@ export function homeTitle() {
       repeat: -1,
       repeatDelay: 1
     })
+    .to($('#stars path'), {
+      opacity: 1,
+      duration: .75,
+      stagger: .1,
+      ease: 'power2.out'
+    }, 1)
   
   gsap.to($('#stagger-text path'), {
     delay: .4,
@@ -33,21 +39,30 @@ export function homeTitle() {
       })
       gsap.set($('#main-text'), {
         display: 'block'
-      })
+      }) 
     }
   })
 
-  // gsap.to($('#stars path:first-child'), {
-  //   scale: 1,
-  //   rotate: 0,
-  //   repeat: -1,
-  //   repeatDelay: 1,
-  //   onComplete: () => {
-  //     gsap.to($('#home-title #stars path:first-child'), {
-  //       scale: 0
-  //     })
-  //   }
-  // })
+  gsap.to('#stars path', {
+    rotate: 360,
+    duration: 5,
+    ease: 'linear',
+    repeat: -1
+  })
+
+  animateStar('path:first-child', .5)
+  animateStar('path:nth-child(2)', 1.75)
+
+  function animateStar(selector, delay) {
+    gsap.to($('#stars ' + selector), {
+      delay: delay,
+      scale: 1,
+      repeat: -1,
+      repeatDelay: .5,
+      yoyo: true,
+      duration: 1,
+    })
+  }
 }
 
 export function rive() {
@@ -60,7 +75,7 @@ export function rive() {
 }
 
 export function loader() {
-  const duration = 1.25
+  const duration = 1.5
   const $ = gsap.utils.selector('#loader')
   const tl = gsap.timeline({
     onComplete: () => {
