@@ -166,7 +166,7 @@
   }
 
   #desk.canvas-wrapper {
-    left: -120%;
+    left: -125%;
 
     #work-trigger {
       width: 62%;
@@ -183,6 +183,7 @@
       left: 50%;
       transform: translateX(-50%);
       background: black;
+      opacity: 0;
     }
 
     .content {
@@ -240,7 +241,7 @@
     position: absolute;
     border-radius: 3%;
     background-color: red;
-    opacity: .5;
+    opacity: 0;
   }
 
 }

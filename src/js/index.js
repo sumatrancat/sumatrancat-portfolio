@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import * as animations from './animations'
 import * as setup from './setup'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat3.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
 
 // app
 class App {
@@ -58,11 +58,18 @@ class App {
     this.inputs.Music.onLoaded = this.inputs.Music.find((i) => i.name === 'isLoaded')
     this.inputs.SocialResume = this.artboards.SocialResume.stateMachineInputs('SM')
     this.inputs.SocialResume.onLoaded = this.inputs.SocialResume.find((i) => i.name === 'isLoaded')
+    this.inputs.Desk = this.artboards.Desk.stateMachineInputs('SM')
+    this.inputs.Desk.onLoaded = this.inputs.Desk.find((i) => i.name === 'isLoaded')
+
+    gsap.delayedCall(.2, () => {
+      this.inputs.Music.onLoaded.value = true
+    })
 
     gsap.delayedCall(.3, () => {
-      this.inputs.Music.onLoaded.value = true
       this.inputs.SocialResume.onLoaded.value = true
+      this.inputs.Desk.onLoaded.value = true
     })
+
   }
 }
 
