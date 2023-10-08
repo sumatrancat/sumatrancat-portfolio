@@ -206,12 +206,11 @@
 
     .social-links {
       position: absolute;
-      top: 5.5%;
+      top: 15%;
       left: 50%;
       width: 80%;
-      height: 15%;
+      height: 13.5%;
       transform: translateX(-50%);
-      // background-color: purple;
 
       .page-trigger {
         top: 0;
@@ -230,8 +229,8 @@
 
     #resume-trigger {
       width: 54.5%;
-      height: 27.25%;
-      bottom: 5.25%;
+      height: 25%;
+      bottom: 4.5%;
       left: 24.5%;
       border-radius: 7%;
     }
@@ -241,7 +240,7 @@
     position: absolute;
     border-radius: 3%;
     background-color: red;
-    opacity: 0;
+    opacity: .5;
   }
 
 }
