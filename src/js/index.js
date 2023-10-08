@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import * as animations from './animations'
 import * as setup from './setup'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat10.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat3.riv', import.meta.url)
 
 // app
 class App {

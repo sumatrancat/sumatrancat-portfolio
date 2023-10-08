@@ -20,6 +20,11 @@ export function homeTitle() {
       repeat: -1,
       repeatDelay: 1
     })
+    .to($('.button'), {
+      opacity: 1,
+      y: 0,
+      pointerEvents: 'auto'
+    }, 1)
     .to($('#stars path'), {
       opacity: 1,
       duration: .75,

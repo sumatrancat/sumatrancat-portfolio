@@ -6,7 +6,7 @@ export function loader() {
   tl
     .set($('#loader-svg circle'), {
       cx: () => window.innerWidth/2,
-      cy: () => window.innerHeight/1
+      cy: () => window.innerHeight
     })
 }
 
@@ -18,7 +18,7 @@ export function rive() {
 
 export function homeTitle() {
   const tl = gsap.timeline()
-  const $ = gsap.utils.selector('#home-title')
+  const $ = gsap.utils.selector('#home .content-wrapper')
   tl
     .set($('#main-text'), {
       display: 'none'
@@ -34,5 +34,10 @@ export function homeTitle() {
       scale: 0,
       opacity: 0,
       transformOrigin: 'center center'
+    })
+    .set('.button', {
+      opacity: 0,
+      y: 25,
+      pointerEvents: 'none'
     })
 }
