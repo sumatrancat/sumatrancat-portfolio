@@ -13,33 +13,79 @@ header {
 
   .content {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
 }
 
-.header-nav-wrapper {
-  display: flex;
-  align-items: center;
-}
-
 .logo-wrapper {
-  margin-right: 30px;
+  margin-right: 25px;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
-  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 0;
 
   li:not(:last-child) {
-    margin-right: 30px;
+    margin-right: 25px;
+  }
+
+  a {
+    display: block;
+    font-size: 14px;
+    line-height: 1;
   }
 }
 
 .logo-wrapper {
   svg {
     width: 40px;
+    // 48 is the right width to match the burger menu height
+    // width: 48px;
+  }
+}
+
+.menu-nav {
+  margin-left: auto;
+}
+
+.burger-menu {
+  // this setting below is the exact width of the logo's face
+  // width: 33px;
+  // height: 33px;
+  // transform: translateX(-70px);
+
+  width: 40px;
+  height: 40px;
+  display: block;
+  background-color: #f2bbcb;
+  border-radius: 50%;
+  display: grid;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s all ease;
+  &:hover {
+    opacity: .85;
+  }
+
+  .icon {
+    display: flex;
+    margin: auto;
+    &:before, &:after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      background-color: black;
+      border-radius: 50%;
+    }
+    &:before {
+      margin-right: 4px;
+    }
   }
 }
 

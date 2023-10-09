@@ -84,7 +84,7 @@
 }
 
 // home responsive
-@include above(lg) {
+@include above(sm) {
   #home {
     .button-wrapper {
       display: none;
@@ -92,7 +92,7 @@
   }
 }
 
-@include below(md) {
+@include below(sm) {
   #home {
     .content-wrapper {
       pointer-events: none;
@@ -135,6 +135,7 @@
   canvas {
     width: 100%;
     position: relative;
+    // filter: grayscale(1);
   }
 
   .canvas-wrapper {

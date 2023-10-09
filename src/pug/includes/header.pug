@@ -3,10 +3,13 @@ header
     - var nav = ['About', 'Work', 'Contact']
     - var navLinks = ['/about', '/work', '/contact']
     .content
-      .header-nav-wrapper
-        a(href="").logo-wrapper
-          include logo.html
-        ul.header-nav
-          each item, i in nav
-            li
-              a(href=navLinks[i]) #{item}
+      a(href="").logo-wrapper
+        include logo-new.html
+      ul.header-nav
+        each item, i in nav
+          li
+            a(href=navLinks[i]) #{item}
+      ul.menu-nav
+        li.burger-menu-wrapper
+          .burger-menu
+            .icon
