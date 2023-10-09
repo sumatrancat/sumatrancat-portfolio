@@ -1,7 +1,7 @@
 header
   .container
-    - var nav = ['About', 'Work', 'Contact']
-    - var navLinks = ['/about', '/work', '/contact']
+    - var nav = ['About', 'Work']
+    - var navLinks = ['/about', '/work']
     .content
       a(href="").logo-wrapper
         include logo-new.html
@@ -9,6 +9,8 @@ header
         each item, i in nav
           li
             a(href=navLinks[i]) #{item}
+        li
+          a(href="mailto:sumatrancat@gmail.com") Hire Me
       ul.menu-nav
         li.burger-menu-wrapper
           .burger-menu

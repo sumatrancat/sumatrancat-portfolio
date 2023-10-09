@@ -36,7 +36,7 @@
   }
 
   .content-wrapper {
-    padding-top: 100px;
+    padding-top: var(--header-height);
     height: 46%;
     display: grid;
     align-items: center;
@@ -251,11 +251,11 @@
 @include below(sm) {
   #home {
     .content-wrapper {
-      height: 40%;
-      padding-top: 100px;
+      height: 50%;
+      padding-top: var(--header-height-mobile);
     }
     .animation-wrapper {
-      height: 60%;
+      height: 50%;
       padding-bottom: 30px;
     }
   }
