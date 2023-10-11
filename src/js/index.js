@@ -2,8 +2,9 @@
 import gsap from 'gsap'
 import * as animations from './animations'
 import * as setup from './setup'
+import mouse from './mouse'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat2.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat4.riv', import.meta.url)
 
 // app
 class App {
@@ -60,6 +61,11 @@ class App {
     this.inputs.SocialResume.onLoaded = this.inputs.SocialResume.find((i) => i.name === 'isLoaded')
     this.inputs.Desk = this.artboards.Desk.stateMachineInputs('SM')
     this.inputs.Desk.onLoaded = this.inputs.Desk.find((i) => i.name === 'isLoaded')
+    this.inputs.Sumatrancat = this.artboards.Sumatrancat.stateMachineInputs('SM')
+    this.inputs.Sumatrancat.translateX = this.inputs.Sumatrancat.find((i) => i.name === 'translateX')
+    this.inputs.Sumatrancat.translateY = this.inputs.Sumatrancat.find((i) => i.name === 'translateY')
+
+    this.mouse = new mouse(this.inputs.Sumatrancat)
 
     gsap.delayedCall(.2, () => {
       this.inputs.Music.onLoaded.value = true
