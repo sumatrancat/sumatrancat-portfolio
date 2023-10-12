@@ -4,7 +4,7 @@ import * as animations from './animations'
 import * as setup from './setup'
 import mouse from './mouse'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat4.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat7.riv', import.meta.url)
 
 // app
 class App {

@@ -3,25 +3,18 @@ import gsap from 'gsap'
 export default class Mouse {
 	constructor(inputs) {
 		this.body = document.body
-		// this.customCursor = document.querySelector('.cursor')
-		// this.buttons = [...document.querySelectorAll('.is-pointer')]
 
-		this.pos = {
-			x: window.innerWidth/2,
-			y: window.innerHeight/2
-		}
-		this.mouse = {
+		this.pos = this.mouse = {
 			x: window.innerWidth/2,
 			y: window.innerHeight/2
 		}
 
-		this.ease = .95
+		this.ease = .5
 		this.posRange = { x: 0, y: 0 }
 		this.inputs = inputs
 
 		window.addEventListener('mousemove', (e) => {
 			this.move(e)
-			// this.moveCursor(e)
 		})
 
 		// document.addEventListener('mouseleave', (e) => {
@@ -42,64 +35,25 @@ export default class Mouse {
 			x: e.clientX,
 			y: e.clientY
 		}
-
-		console.log('x:', this.posRange.x)
-		console.log('y:', this.posRange.y)
-
-		// const cursorPos = {
-		// 	x: e.clientX - (this.customCursor.clientWidth * 0.25),
-		// 	y: e.clientY - (this.customCursor.clientWidth * 0.25)
-		// }
-
-		// this.customCursor.style.cssText = `
-		// 	transform: translate(${cursorPos.x}px, ${cursorPos.y}px)
-		// `
 	}
 
 	update(e) {
-		const progressX = gsap.utils.mapRange(0, window.innerWidth, 0, 100)
-		const progressY = gsap.utils.mapRange(0, window.innerHeight, 100, 0)
+		const progressX = gsap.utils.mapRange(0, window.innerWidth, 0, 50)
+		const progressY = gsap.utils.mapRange(0, window.innerHeight, 50, 0)
 
-		// if(this.inputs.isMoving.value) {
-			this.pos.x += (this.mouse.x - this.pos.x) * this.ease
-			this.pos.y += (this.mouse.y - this.pos.y) * this.ease
+		this.pos.x += (this.mouse.x - this.pos.x) * this.ease
+		this.pos.y += (this.mouse.y - this.pos.y) * this.ease
 
-			this.posRange = {
-				x: progressX(this.pos.x),
-				y: progressY(this.pos.y)
-			}
-		// }
+		this.posRange = {
+			x: progressX(this.pos.x),
+			y: progressY(this.pos.y)
+		}
 
-		// console.log(this.inputs)
-
-		this.inputs.translateX.value = this.posRange.x
-		this.inputs.translateY.value = this.posRange.y
+		// set cursor position to character's inputs
+		this.inputs.translateX.value = Math.round(this.posRange.x)
+		this.inputs.translateY.value = Math.round(this.posRange.y)
 
 		requestAnimationFrame(this.update.bind(this))
-	}
-
-	moveCursor(e) {
-		const target = e.target
-		if(!target.nodeName == 'A' || target.classList.contains('is-pointer')) {
-			this.customCursor.classList.add('is-pointer')
-		} else {
-			this.customCursor.classList.remove('is-pointer')
-		}
-	}
-
-	setPos(x, y) {
-		this.pos = {
-			x: x,
-			y: y
-		}
-		this.mouse = {
-			x: x,
-			y: y
-		}
-	}
-
-	animatePosition() {
-
 	}
 
 }
