@@ -28,8 +28,8 @@ class App {
     this.userInputs = {
       'Sumatrancat': ['translateX', 'translateY', 'isMouthUwuFlipped'],
       'Desk': ['isLoaded'],
-      'Music': ['isLoaded'],
-      'SocialResume': ['isLoaded']
+      'Music': ['isLoaded', 'isAudioActive'],
+      'SocialResume': ['isLoaded', 'isTwitterHovered']
     }
     this.artboards = {}
     this.artboardInputs = {}
@@ -82,11 +82,27 @@ class App {
       this.artboardInputs.Desk.isLoaded.value = true
     })
 
+    gsap.delayedCall(.6, () => {
+      this.artboardInputs.Music.isAudioActive.value = true
+    })
+
+    console.log(this.artboardInputs.SocialResume)
+
+    const twitter = document.querySelector('[data-social="twitter"]')
+    twitter.addEventListener('mouseenter', () => {
+      this.artboardInputs.SocialResume.isTwitterHovered.value = true
+    })
+
+    twitter.addEventListener('mouseleave', () => {
+      this.artboardInputs.SocialResume.isTwitterHovered.value = false
+    })
+
   }
 }
 
 const app = new App()
 
 document.addEventListener('DOMContentLoaded', () => {
+  // load all artboards when DOM is loaded
   app.loadArtboards()
 })

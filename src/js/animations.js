@@ -39,9 +39,6 @@ export function homeTitle() {
     stagger: .035,
     ease: 'power2.out',
     onComplete: () => {
-      // gsap.set($('#stagger-text'), {
-      //   display: 'none'
-      // })
       gsap.set($('#main-text'), {
         display: 'block'
       }) 

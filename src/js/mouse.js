@@ -49,7 +49,7 @@ export default class Mouse {
 			y: progressY(this.pos.y)
 		}
 
-		console.log(this.posRange.x)
+		// console.log(this.posRange.x)
 		if(this.posRange.x > 26) {
 			this.inputs.isMouthUwuFlipped.value = true
 		} else {
