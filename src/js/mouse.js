@@ -9,7 +9,7 @@ export default class Mouse {
 			y: window.innerHeight/2
 		}
 
-		this.ease = .5
+		this.ease = .75
 		this.posRange = { x: 0, y: 0 }
 		this.inputs = inputs
 
@@ -49,9 +49,16 @@ export default class Mouse {
 			y: progressY(this.pos.y)
 		}
 
+		console.log(this.posRange.x)
+		if(this.posRange.x > 26) {
+			this.inputs.isMouthUwuFlipped.value = true
+		} else {
+			this.inputs.isMouthUwuFlipped.value = false
+		}
+
 		// set cursor position to character's inputs
-		this.inputs.translateX.value = Math.round(this.posRange.x)
-		this.inputs.translateY.value = Math.round(this.posRange.y)
+		this.inputs.translateX.value = this.posRange.x
+		this.inputs.translateY.value = this.posRange.y
 
 		requestAnimationFrame(this.update.bind(this))
 	}

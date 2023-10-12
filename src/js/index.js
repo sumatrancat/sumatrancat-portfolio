@@ -4,7 +4,7 @@ import * as animations from './animations'
 import * as setup from './setup'
 import mouse from './mouse'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat7.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
 
 // app
 class App {
@@ -25,11 +25,18 @@ class App {
     this.numberOfLoadedArtboards = 0
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
-    this.inputs = {}
+    this.userInputs = {
+      'Sumatrancat': ['translateX', 'translateY', 'isMouthUwuFlipped'],
+      'Desk': ['isLoaded'],
+      'Music': ['isLoaded'],
+      'SocialResume': ['isLoaded']
+    }
     this.artboards = {}
+    this.artboardInputs = {}
+
     this.artboardNames.forEach((name, i) => {
       // insert blank object to inputs object
-      this.inputs[name] = {}
+      this.artboardInputs[name] = {}
       this.artboards[name] = new rive.Rive({
         src: riveFile,
         artboard: name,
@@ -55,25 +62,24 @@ class App {
     animations.loader()
     animations.homeTitle()
 
-    this.inputs.Music = this.artboards.Music.stateMachineInputs('SM')
-    this.inputs.Music.onLoaded = this.inputs.Music.find((i) => i.name === 'isLoaded')
-    this.inputs.SocialResume = this.artboards.SocialResume.stateMachineInputs('SM')
-    this.inputs.SocialResume.onLoaded = this.inputs.SocialResume.find((i) => i.name === 'isLoaded')
-    this.inputs.Desk = this.artboards.Desk.stateMachineInputs('SM')
-    this.inputs.Desk.onLoaded = this.inputs.Desk.find((i) => i.name === 'isLoaded')
-    this.inputs.Sumatrancat = this.artboards.Sumatrancat.stateMachineInputs('SM')
-    this.inputs.Sumatrancat.translateX = this.inputs.Sumatrancat.find((i) => i.name === 'translateX')
-    this.inputs.Sumatrancat.translateY = this.inputs.Sumatrancat.find((i) => i.name === 'translateY')
+    // repeat through user inputs and assign them to the artboard inputs object
+    Object.keys(this.userInputs).forEach(key => {
+      const objectName = key
+      this.artboardInputs[objectName] = this.artboards[objectName].stateMachineInputs('SM')
+      this.userInputs[objectName].forEach(input => {
+        this.artboardInputs[objectName][input] = this.artboardInputs[objectName].find(i => i.name === input)
+      })
+    })
 
-    this.mouse = new mouse(this.inputs.Sumatrancat)
+    this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
     gsap.delayedCall(.2, () => {
-      this.inputs.Music.onLoaded.value = true
+      this.artboardInputs.Music.isLoaded.value = true
     })
 
     gsap.delayedCall(.3, () => {
-      this.inputs.SocialResume.onLoaded.value = true
-      this.inputs.Desk.onLoaded.value = true
+      this.artboardInputs.SocialResume.isLoaded.value = true
+      this.artboardInputs.Desk.isLoaded.value = true
     })
 
   }
