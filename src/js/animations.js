@@ -79,13 +79,7 @@ export function rive() {
 export function loader() {
   const duration = 1.5
   const $ = gsap.utils.selector('#loader')
-  const tl = gsap.timeline({
-    onComplete: () => {
-      gsap.set('#loader', {
-        display: 'none'
-      })
-    }
-  })
+  const tl = gsap.timeline()
 
   tl
     .to($('#clip-layer-2 circle'), {
@@ -110,4 +104,7 @@ export function loader() {
       duration: duration,
       ease: 'expo.out'
     }, .2)
+    .set('#loader', {
+      display: 'none'
+    }, .6)
 }

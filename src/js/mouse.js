@@ -9,7 +9,7 @@ export default class Mouse {
 			y: window.innerHeight/2
 		}
 
-		this.ease = .75
+		this.ease = .5
 		this.posRange = { x: 0, y: 0 }
 		this.inputs = inputs
 

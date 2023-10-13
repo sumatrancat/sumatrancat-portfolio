@@ -1,10 +1,11 @@
 // requirements
 import gsap from 'gsap'
-import * as animations from './animations'
 import * as setup from './setup'
+import * as interactions from './interactions'
+import * as animations from './animations'
 import mouse from './mouse'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat2.riv', import.meta.url)
 
 // app
 class App {
@@ -29,7 +30,7 @@ class App {
       'Sumatrancat': ['translateX', 'translateY', 'isMouthUwuFlipped'],
       'Desk': ['isLoaded'],
       'Music': ['isLoaded', 'isAudioActive'],
-      'SocialResume': ['isLoaded', 'isTwitterHovered']
+      'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered']
     }
     this.artboards = {}
     this.artboardInputs = {}
@@ -73,11 +74,8 @@ class App {
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
-    gsap.delayedCall(.2, () => {
-      this.artboardInputs.Music.isLoaded.value = true
-    })
-
     gsap.delayedCall(.3, () => {
+      this.artboardInputs.Music.isLoaded.value = true
       this.artboardInputs.SocialResume.isLoaded.value = true
       this.artboardInputs.Desk.isLoaded.value = true
     })
@@ -86,16 +84,16 @@ class App {
       this.artboardInputs.Music.isAudioActive.value = true
     })
 
-    console.log(this.artboardInputs.SocialResume)
+    interactions.social(this.artboardInputs.SocialResume)
 
-    const twitter = document.querySelector('[data-social="twitter"]')
-    twitter.addEventListener('mouseenter', () => {
-      this.artboardInputs.SocialResume.isTwitterHovered.value = true
-    })
+    // const twitter = document.querySelector('[data-social="twitter"]')
+    // twitter.addEventListener('mouseenter', () => {
+    //   this.artboardInputs.SocialResume.isTwitterHovered.value = true
+    // })
 
-    twitter.addEventListener('mouseleave', () => {
-      this.artboardInputs.SocialResume.isTwitterHovered.value = false
-    })
+    // twitter.addEventListener('mouseleave', () => {
+    //   this.artboardInputs.SocialResume.isTwitterHovered.value = false
+    // })
 
   }
 }
