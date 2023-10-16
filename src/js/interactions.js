@@ -15,3 +15,15 @@ export function social(inputs) {
     })
   }
 }
+
+export function resume(input) {
+  const trigger = document.querySelector('#resume-trigger')
+  if(trigger) {
+    trigger.addEventListener('mouseenter', () => {
+      input.value = true
+    })
+    trigger.addEventListener('mouseleave', () => {
+      input.value = false
+    })
+  }
+}

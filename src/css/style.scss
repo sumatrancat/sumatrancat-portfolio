@@ -2,7 +2,6 @@
 
 @import 'utils/mdqs';
 
-@import 'base/font';
 @import 'base/reset';
 @import 'base/variables';
 @import 'base/container';
@@ -16,6 +15,7 @@ body {
   background-color: var(--color-peach);
   font-family: var(--font-body);
   overflow: hidden;
+  // filter: grayscale(1);
 }
 
 // gokil bray

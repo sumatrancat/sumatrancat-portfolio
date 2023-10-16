@@ -5,7 +5,7 @@ import * as interactions from './interactions'
 import * as animations from './animations'
 import mouse from './mouse'
 const rive = require('@rive-app/canvas')
-const riveFile = new URL('../rive/sumatrancat2.riv', import.meta.url)
+const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
 
 // app
 class App {
@@ -30,7 +30,8 @@ class App {
       'Sumatrancat': ['translateX', 'translateY', 'isMouthUwuFlipped'],
       'Desk': ['isLoaded'],
       'Music': ['isLoaded', 'isAudioActive'],
-      'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered']
+      'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 
+      'isResumeHovered']
     }
     this.artboards = {}
     this.artboardInputs = {}
@@ -72,6 +73,9 @@ class App {
       })
     })
 
+    interactions.social(this.artboardInputs.SocialResume)
+    interactions.resume(this.artboardInputs.SocialResume.isResumeHovered)
+
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
     gsap.delayedCall(.3, () => {
@@ -83,18 +87,6 @@ class App {
     gsap.delayedCall(.6, () => {
       this.artboardInputs.Music.isAudioActive.value = true
     })
-
-    interactions.social(this.artboardInputs.SocialResume)
-
-    // const twitter = document.querySelector('[data-social="twitter"]')
-    // twitter.addEventListener('mouseenter', () => {
-    //   this.artboardInputs.SocialResume.isTwitterHovered.value = true
-    // })
-
-    // twitter.addEventListener('mouseleave', () => {
-    //   this.artboardInputs.SocialResume.isTwitterHovered.value = false
-    // })
-
   }
 }
 
