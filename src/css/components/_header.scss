@@ -21,6 +21,18 @@ header {
 
 .logo-wrapper {
   margin-right: 25px;
+  svg {
+    width: 40px;
+    // 48 is the right width to match the burger menu height
+    // width: 48px;
+  }
+}
+
+.logo {
+  font-size: 24px;
+  line-height: 40px;
+  padding-bottom: 3px;
+  font-weight: 400;
 }
 
 .header-nav {
@@ -41,14 +53,6 @@ header {
   }
 }
 
-.logo-wrapper {
-  svg {
-    width: 40px;
-    // 48 is the right width to match the burger menu height
-    // width: 48px;
-  }
-}
-
 .menu-nav {
   margin-left: auto;
 }
@@ -59,7 +63,9 @@ header {
   &.menu-is-active {
     #menu {
       opacity: 1;
+      transform: none;
       pointer-events: auto;
+      transition-delay: .1s;
     }
     .menu-trigger .icon {
       transform: rotate(90deg);
@@ -82,8 +88,10 @@ header {
   border-radius: 27.5px;
   box-shadow: 0px 5px 10px rgba(0,0,0,.15);
   opacity: 0;
+  transform-origin: calc(100% - 30px) calc(0% + 30px);
+  transform: rotate(-10deg);
   pointer-events: none;
-  transition: .3s all ease;
+  transition: .5s all cubic-bezier(.16, 1, .3, 1);
   // display: none;
 }
 
@@ -94,7 +102,8 @@ header {
   letter-spacing: 1px;
   a {
     display: block;
-    padding: 8px 15px;
+    padding: 0 15px;
+    line-height: 40px;
     transition: .3s all ease;
     border-radius: 100px;
     &:hover {

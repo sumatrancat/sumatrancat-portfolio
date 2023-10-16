@@ -88,9 +88,9 @@ class App {
       this.artboardInputs.Desk.isLoaded.value = true
     })
 
-    gsap.delayedCall(.6, () => {
-      this.artboardInputs.Music.isAudioActive.value = true
-    })
+    // gsap.delayedCall(.6, () => {
+    //   this.artboardInputs.Music.isAudioActive.value = true
+    // })
   }
 }
 
