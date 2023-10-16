@@ -12,6 +12,16 @@ header
         li
           a(href="mailto:sumatrancat@gmail.com") Hire Me
       ul.menu-nav
+        -var menu = ['Home', 'About', 'Work', 'Contact']
+        -var moreMenu = ['Resume', 'Twitter / X', 'YouTube', 'GitHub']
         li.burger-menu-wrapper
+          menu#menu
+            .menu-items
+              each item in menu
+                a(href="#" class="menu-item") #{item}
+            .more-menu-items
+              each item in moreMenu
+                .item-wrapper
+                  a(href="#" class="menu-item") #{item}
           .burger-menu
             .icon

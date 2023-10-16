@@ -138,121 +138,121 @@
     // filter: grayscale(1);
   }
 
-  .canvas-wrapper {
-    position: relative;
-  }
-
-  .canvas-wrapper:not(#character) {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-  }
-
-  #character {
-    position: relative;
-
-    // floor
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: -120%;
-      right: -120%;
-      height: 1.15%;
-      // background-color: #f1c0ce;
-      background-color: black;
-      opacity: .25;
-      border-radius: 10px;
-      z-index: -1;
-    }
-  }
-
-  #desk.canvas-wrapper {
-    left: -125%;
-
-    #work-trigger {
-      width: 62%;
-      height: 31.85%;
-      top: 26%;
-      left: 20%;
-    }
-
-    .screen {
-      position: absolute;
-      width: 57%;
-      height: 29.5%;
-      top: 27.25%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: black;
-      opacity: 0;
-    }
-
-    .content {
-      color: white;
-      letter-spacing: 2;
-      font-size: 200%;
-    }
-  }
-
-  #music.canvas-wrapper {
-    left: unset;
-    right: -110%;
-  }
-
-  #social-resume.canvas-wrapper {
-    width: 62.5%;
-    bottom: unset;
-    left: unset;
-    top: -60%;
-    right: -140%;
-
-    .social-links {
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      width: 80%;
-      height: 13.5%;
-      transform: translateX(-50%);
-
-      .page-trigger {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 29%;
-        border-radius: 10%;
-        &:nth-child(2) {
-          left: 35.5%;
-        }
-        &:nth-child(3) {
-          left: 71%;
-        }
-      }
-    }
-
-    #resume-trigger {
-      width: 54.5%;
-      height: 25%;
-      bottom: 4.5%;
-      left: 24.5%;
-      border-radius: 7%;
-      transition: .3s transform cubic-bezier(.34, 2.14, .64, 1);
-      &:hover {
-        transition: .5s transform cubic-bezier(.16, 1, .3, 1);
-        transform: translateY(-13%);
-      }
-    }
-  }
-  
   .page-trigger {
     position: absolute;
     border-radius: 3%;
     background-color: red;
     opacity: 0;
   }
-
 }
+
+.canvas-wrapper {
+  position: relative;
+}
+
+.canvas-wrapper:not(#character) {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+
+#character {
+  position: relative;
+
+  // floor
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -120%;
+    right: -120%;
+    height: 1.15%;
+    background-color: #f1c0ce;
+    // background-color: black;
+    border-radius: 10px;
+    z-index: -1;
+  }
+}
+
+#desk.canvas-wrapper {
+  left: -125%;
+
+  #work-trigger {
+    width: 62%;
+    height: 31.85%;
+    top: 26%;
+    left: 20%;
+  }
+
+  .screen {
+    position: absolute;
+    width: 57%;
+    height: 29.5%;
+    top: 27.25%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    opacity: 0;
+  }
+
+  .content {
+    color: white;
+    letter-spacing: 2;
+    font-size: 200%;
+  }
+}
+
+#music.canvas-wrapper {
+  left: unset;
+  right: -110%;
+}
+
+#social-resume.canvas-wrapper {
+  width: 62.5%;
+  bottom: unset;
+  left: unset;
+  top: -60%;
+  right: -140%;
+
+  .social-links {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 80%;
+    height: 13.5%;
+    transform: translateX(-50%);
+
+    .page-trigger {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 29%;
+      border-radius: 10%;
+      &:nth-child(2) {
+        left: 35.5%;
+      }
+      &:nth-child(3) {
+        left: 71%;
+      }
+    }
+  }
+
+  #resume-trigger {
+    width: 54.5%;
+    height: 25%;
+    bottom: 4.5%;
+    left: 24.5%;
+    border-radius: 7%;
+    transition: .3s transform cubic-bezier(.34, 2.14, .64, 1);
+    &:hover {
+      transition: .5s transform cubic-bezier(.16, 1, .3, 1);
+      transform: translateY(-13%);
+    }
+  }
+}
+
 
 // rive responsive
 @include below(sm) {
@@ -284,13 +284,13 @@
       // max-height: 100%;
       // margin: auto;
     }
-
-    #character {
-      height: 100%;
-      &:before {
-        left: 50px;
-        right: 50px;
-      }
+  }
+  
+  #character {
+    height: 100%;
+    &:before {
+      left: 50px;
+      right: 50px;
     }
   }
 }
