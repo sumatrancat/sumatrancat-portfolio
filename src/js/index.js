@@ -20,6 +20,7 @@ class App {
   setup() {
     setup.loader()
     setup.homeTitle()
+    interactions.menu()
   }
 
   loadArtboards() {
@@ -78,8 +79,11 @@ class App {
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
-    gsap.delayedCall(.3, () => {
+    gsap.delayedCall(.2, () => {
       this.artboardInputs.Music.isLoaded.value = true
+    })
+
+    gsap.delayedCall(.3, () => {
       this.artboardInputs.SocialResume.isLoaded.value = true
       this.artboardInputs.Desk.isLoaded.value = true
     })

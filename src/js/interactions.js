@@ -1,3 +1,5 @@
+import { wrap } from "gsap"
+
 export function social(inputs) {
   const links = [...document.querySelectorAll('.social-links a')]
   if(links.length > 0) {
@@ -26,4 +28,18 @@ export function resume(input) {
       input.value = false
     })
   }
+}
+
+export function menu() {
+  const wrapper = document.querySelector('#menu-wrapper')
+  const trigger = document.querySelector('.menu-trigger')
+  let menuState = false
+  trigger.addEventListener('click', () => {
+    menuState = !menuState
+    if(menuState) {
+      wrapper.classList.add('menu-is-active')
+    } else {
+      wrapper.classList.remove('menu-is-active')
+    }
+  })
 }

@@ -53,8 +53,18 @@ header {
   margin-left: auto;
 }
 
-.burger-menu-wrapper {
+#menu-wrapper {
   position: relative;
+
+  &.menu-is-active {
+    #menu {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .menu-trigger .icon {
+      transform: rotate(90deg);
+    }
+  }
 }
 
 #menu {
@@ -71,7 +81,10 @@ header {
   background-color: white;
   border-radius: 27.5px;
   box-shadow: 0px 5px 10px rgba(0,0,0,.15);
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s all ease;
+  // display: none;
 }
 
 .menu-items {
@@ -103,7 +116,7 @@ header {
   }
 }
 
-.burger-menu {
+.menu-trigger {
   // this setting below is the exact width of the logo's face
   // width: 33px;
   // height: 33px;
@@ -126,6 +139,8 @@ header {
   .icon {
     display: flex;
     margin: auto;
+    transform-origin: center center;
+    transition: .3s all ease;
     &:before, &:after {
       content: '';
       display: block;
