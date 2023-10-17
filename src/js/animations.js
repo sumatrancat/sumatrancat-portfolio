@@ -77,7 +77,7 @@ export function rive() {
 }
 
 export function loader() {
-  const duration = 1
+  const duration = 1.5
   const $ = gsap.utils.selector('#loader')
   const tl = gsap.timeline()
 
