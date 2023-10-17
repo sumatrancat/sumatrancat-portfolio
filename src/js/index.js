@@ -28,7 +28,7 @@ class App {
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
-      'Sumatrancat': ['translateX', 'translateY', 'isMouthUwuFlipped'],
+      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped'],
       'Desk': ['isLoaded'],
       'Music': ['isLoaded', 'isAudioActive'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 
@@ -84,6 +84,7 @@ class App {
     })
 
     gsap.delayedCall(.3, () => {
+      this.artboardInputs.Sumatrancat.isLoaded.value = true
       this.artboardInputs.SocialResume.isLoaded.value = true
       this.artboardInputs.Desk.isLoaded.value = true
     })
