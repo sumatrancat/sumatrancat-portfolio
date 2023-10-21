@@ -30,7 +30,7 @@ class App {
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped'],
       'Desk': ['isLoaded', 'isMonitorHovered'],
-      'Music': ['isLoaded', 'isAudioActive'],
+      'Music': ['isLoaded', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 
       'isResumeHovered']
     }
@@ -76,6 +76,7 @@ class App {
 
     interactions.social(this.artboardInputs.SocialResume)
     interactions.riveHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
+    interactions.riveHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
     interactions.riveHover(this.artboardInputs.Desk.isMonitorHovered, '#work-trigger')
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)

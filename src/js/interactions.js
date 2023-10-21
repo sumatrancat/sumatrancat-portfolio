@@ -22,9 +22,11 @@ export function riveHover(input, selector) {
   const trigger = document.querySelector(selector)
   if(trigger) {
     trigger.addEventListener('mouseenter', () => {
+      console.log('hovered')
       input.value = true
     })
     trigger.addEventListener('mouseleave', () => {
+      console.log('not hovered')
       input.value = false
     })
   }
