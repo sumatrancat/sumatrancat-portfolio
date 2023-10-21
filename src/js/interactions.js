@@ -18,8 +18,8 @@ export function social(inputs) {
   }
 }
 
-export function resume(input) {
-  const trigger = document.querySelector('#resume-trigger')
+export function riveHover(input, selector) {
+  const trigger = document.querySelector(selector)
   if(trigger) {
     trigger.addEventListener('mouseenter', () => {
       input.value = true

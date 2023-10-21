@@ -15,11 +15,11 @@ block content
       //- .canvas-wrapper(data-artboard="desk")
       #rive
         #desk.canvas-wrapper
-          .screen
-          //- video.screen(muted playsinline autoplay loop)
-          //-   source(type="video/mp4" src="../../public/video/reel.mp4")
-          canvas.artboard-desk(width="400" height="450")
+          //- .screen
           a#work-trigger.page-trigger(href="/work") 
+            video.screen(muted playsinline autoplay loop)
+              source(type="video/mp4" src="../../public/video/reel.mp4")
+          canvas.artboard-desk(width="400" height="450")
         #music.canvas-wrapper
           canvas.artboard-music(width="400" height="350")
         #social-resume.canvas-wrapper

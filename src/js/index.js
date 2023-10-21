@@ -29,7 +29,7 @@ class App {
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped'],
-      'Desk': ['isLoaded'],
+      'Desk': ['isLoaded', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isAudioActive'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 
       'isResumeHovered']
@@ -75,7 +75,8 @@ class App {
     })
 
     interactions.social(this.artboardInputs.SocialResume)
-    interactions.resume(this.artboardInputs.SocialResume.isResumeHovered)
+    interactions.riveHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
+    interactions.riveHover(this.artboardInputs.Desk.isMonitorHovered, '#work-trigger')
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
