@@ -28,11 +28,10 @@ class App {
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
-      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped'],
+      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped', 'isMoving', 'isZoom'],
       'Desk': ['isLoaded', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isAudioActive', 'isGuitarHovered'],
-      'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 
-      'isResumeHovered']
+      'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
     }
     this.artboards = {}
     this.artboardInputs = {}
@@ -91,8 +90,8 @@ class App {
       this.artboardInputs.Desk.isLoaded.value = true
     })
 
-    // gsap.delayedCall(.6, () => {
-    //   this.artboardInputs.Music.isAudioActive.value = true
+    // gsap.delayedCall(1, () => {
+    //   this.artboardInputs.Sumatrancat.isZoom.value = true
     // })
   }
 }

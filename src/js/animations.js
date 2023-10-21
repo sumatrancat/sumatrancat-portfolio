@@ -106,5 +106,6 @@ export function loader() {
     }, .2)
     .set('#loader', {
       display: 'none'
-    }, .6)
+      // background: 'red'
+    }, .9)
 }
