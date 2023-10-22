@@ -3,13 +3,14 @@ header
     - var nav = ['About', 'Work']
     - var navLinks = ['/about', '/work']
     .content
-      a(href="").logo Sumatrancat 
-      //- ul.header-nav
-      //-   each item, i in nav
-      //-     li
-      //-       a(href=navLinks[i]) #{item}
-      //-   li
-      //-     a(href="mailto:sumatrancat@gmail.com") Hire Me
+      .left
+        a(href="").logo Sumatrancat 
+        ul.header-nav
+          each item, i in nav
+            li
+              a(href=navLinks[i]) #{item}
+          li
+            a(href="mailto:sumatrancat@gmail.com") Hire Me
       ul.menu-nav
         -var menu = ['Home', 'About', 'Work', 'Contact']
         -var moreMenu = ['Resume', 'Twitter / X', 'YouTube', 'GitHub']

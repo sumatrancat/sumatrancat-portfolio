@@ -56,6 +56,8 @@
 
   .animation-wrapper {
     height: 54%;
+    display: grid;
+    align-items: flex-end;
   }
 }
 
@@ -140,8 +142,10 @@
 #rive {
   display: block;
   position: relative;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 22.5%; // same width as design
+  transform: translateY(-20%);
 
   canvas {
     width: 100%;
