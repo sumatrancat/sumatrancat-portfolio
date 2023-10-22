@@ -4,11 +4,25 @@ import { CustomEase } from 'gsap/all'
 gsap.registerPlugin(CustomEase)
 
 export function work(artboard, inputs) {
+  let isMouseMoving = false
   const $ = gsap.utils.selector('#home')
   const rive = document.getElementById('rive')
-  const tl = gsap.timeline({})
-
-  inputs.isMoving.value = false
+  const tl = gsap.timeline({
+    onStart: () => {
+      inputs.isMoving.value = false
+    },
+    onComplete: () => {
+      // inputs.isMoving.value = true
+      console.log(isMouseMoving)
+      window.addEventListener('mousemove', () => {
+        isMouseMoving = true
+        if(isMouseMoving) {
+          inputs.isMoving.value = true
+          return false
+        }
+      })
+    }
+  })
 
   tl
     .set(rive, {
