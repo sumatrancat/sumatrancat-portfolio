@@ -7,6 +7,8 @@ import mouse from './mouse'
 const rive = require('@rive-app/canvas')
 const riveFile = new URL('../rive/sumatrancat.riv', import.meta.url)
 
+console.log(rive)
+
 // app
 class App {
   constructor() {
@@ -29,8 +31,8 @@ class App {
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped', 'isMoving', 'isZoom'],
-      'Desk': ['isLoaded', 'isMonitorHovered'],
-      'Music': ['isLoaded', 'isAudioActive', 'isGuitarHovered'],
+      'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
+      'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
     }
     this.artboards = {}
@@ -57,6 +59,7 @@ class App {
     this.numberOfLoadedArtboards +=1
     if(this.numberOfLoadedArtboards == this.artboardNames.length) {
       this.play()
+      this.events()
     }
   }
 
@@ -89,10 +92,26 @@ class App {
       this.artboardInputs.SocialResume.isLoaded.value = true
       this.artboardInputs.Desk.isLoaded.value = true
     })
+  }
 
-    // gsap.delayedCall(1, () => {
-    //   this.artboardInputs.Sumatrancat.isZoom.value = true
-    // })
+  events() {
+    this.artboards.Desk.on(rive.EventType.RiveEvent, e => {
+      const data = e.data
+      const props = data.properties
+
+      if(props.isReady) {
+        this.artboardInputs.Desk.isReady.value = true
+      }
+    })
+
+    this.artboards.Music.on(rive.EventType.RiveEvent, e => {
+      const data = e.data
+      const props = data.properties
+
+      if(props.isReady) {
+        this.artboardInputs.Music.isReady.value = true
+      }
+    })
   }
 }
 
