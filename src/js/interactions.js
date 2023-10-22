@@ -1,5 +1,3 @@
-import { wrap } from "gsap"
-
 export function social(inputs) {
   const links = [...document.querySelectorAll('.social-links a')]
   if(links.length > 0) {
