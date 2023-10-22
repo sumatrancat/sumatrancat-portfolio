@@ -4,7 +4,7 @@ import { CustomEase } from 'gsap/all'
 gsap.registerPlugin(CustomEase)
 
 export function work(artboard, inputs) {
-  const $ = gsap.utils.selector('#rive')
+  const $ = gsap.utils.selector('#home')
   const rive = document.getElementById('rive')
   const tl = gsap.timeline({})
 
@@ -14,7 +14,7 @@ export function work(artboard, inputs) {
     .set(rive, {
       transformOrigin: 'bottom'
     })
-    .to($('.canvas-wrapper:not(#character)'), {
+    .to([$('.canvas-wrapper:not(#character)'), $('#home-title')], {
       opacity: 0,
       duration: .5,
       ease: 'power2.out',
@@ -24,19 +24,16 @@ export function work(artboard, inputs) {
       value: 25
     }, .15)
     .to(inputs.translateY, {
-      value: 50
+      value: 35
     }, '<')
     .to(rive, {
-      onStart: () => {
-        inputs.isZoom.value = true
-      },
-      y: 0,
+      scale: 1.5,
+      y: '65%',
       duration: 1,
-      ease: 'expo.out',
       // ease: CustomEase.create('custom', '.85, 0, .15, 1'),
+      ease: 'expo.inOut',
       onUpdate: () => {
-        // keep graphics sharp
         artboard.resizeDrawingSurfaceToCanvas()
       }
-    }, .35)
+    }, .15)
 }

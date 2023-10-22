@@ -23,6 +23,7 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 
   // &:before {
   //   content: '';
@@ -146,6 +147,7 @@
   margin-right: auto;
   width: 22.5%; // same width as design
   transform: translateY(-20%);
+  will-change: transform;
 
   canvas {
     width: 100%;
