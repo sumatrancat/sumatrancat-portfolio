@@ -1,14 +1,14 @@
 header
   .container
     - var nav = ['About', 'Work']
-    - var navLinks = ['/about', '/work']
+    - var navLinks = ['#', '#']
     .content
       .left
         a(href="").logo Sumatrancat 
         ul.header-nav
           each item, i in nav
             li
-              a(href=navLinks[i]) #{item}
+              a(href=navLinks[i] class="nav-item" data-nav=item) #{item}
           li
             a(href="mailto:sumatrancat@gmail.com") Hire Me
       ul.menu-nav

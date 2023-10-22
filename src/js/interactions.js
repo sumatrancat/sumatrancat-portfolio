@@ -1,3 +1,5 @@
+import * as transitions from "./transitions"
+
 export function social(inputs) {
   const links = [...document.querySelectorAll('.social-links a')]
   if(links.length > 0) {
@@ -42,4 +44,15 @@ export function menu() {
       wrapper.classList.remove('menu-is-active')
     }
   })
+}
+
+export function header(artboard, inputs) {
+  const workTriggers = [...document.querySelectorAll('#work-trigger, .nav-item[data-nav="About"]')]
+  if(workTriggers.length > 0) {
+    workTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        transitions.work(artboard, inputs)
+      })
+    })
+  }
 }

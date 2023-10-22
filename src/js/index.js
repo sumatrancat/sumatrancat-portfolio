@@ -80,6 +80,7 @@ class App {
     interactions.riveHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
     interactions.riveHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
     interactions.riveHover(this.artboardInputs.Desk.isMonitorHovered, '#work-trigger')
+    interactions.header(this.artboards.Sumatrancat, this.artboardInputs.Sumatrancat)
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 

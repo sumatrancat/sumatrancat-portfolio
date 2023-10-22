@@ -57,8 +57,10 @@ export default class Mouse {
 		}
 
 		// set cursor position to character's inputs
-		this.inputs.translateX.value = this.posRange.x
-		this.inputs.translateY.value = this.posRange.y
+		if(this.inputs.isMoving.value) {
+			this.inputs.translateX.value = this.posRange.x
+			this.inputs.translateY.value = this.posRange.y
+		}
 
 		requestAnimationFrame(this.update.bind(this))
 	}
