@@ -62,7 +62,8 @@ export function work(artboards, inputs) {
       z: 0,
       duration: 1,
       ease: 'expo.inOut',
-      onUpdate: () => {
+      // onUpdate: () => {
+      onComplete: () => {
         artboards.Sumatrancat.resizeDrawingSurfaceToCanvas()
       }
     }, '-=.15')
