@@ -30,7 +30,8 @@ class App {
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
-      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped', 'isMoving', 'isZoom'],
+      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped', 'isMoving', 'isZoom',
+        'isUpMore'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -68,8 +69,7 @@ class App {
     animations.homeTitle()
 
     // repeat through user inputs and assign them to the artboard inputs object
-    Object.keys(this.userInputs).forEach(key => {
-      const objectName = key
+    Object.keys(this.userInputs).forEach(objectName => {
       this.artboardInputs[objectName] = this.artboards[objectName].stateMachineInputs('SM')
       this.userInputs[objectName].forEach(input => {
         this.artboardInputs[objectName][input] = this.artboardInputs[objectName].find(i => i.name === input)
@@ -80,7 +80,7 @@ class App {
     interactions.riveHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
     interactions.riveHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
     interactions.riveHover(this.artboardInputs.Desk.isMonitorHovered, '#work-trigger')
-    interactions.header(this.artboards.Sumatrancat, this.artboardInputs.Sumatrancat)
+    interactions.header(this.artboards, this.artboardInputs)
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 

@@ -46,12 +46,12 @@ export function menu() {
   })
 }
 
-export function header(artboard, inputs) {
-  const workTriggers = [...document.querySelectorAll('#work-trigger, .nav-item[data-nav="About"]')]
+export function header(artboards, inputs) {
+  const workTriggers = [...document.querySelectorAll('[data-to="Work"]')]
   if(workTriggers.length > 0) {
     workTriggers.forEach(trigger => {
       trigger.addEventListener('click', () => {
-        transitions.work(artboard, inputs)
+        transitions.work(artboards, inputs)
       })
     })
   }
