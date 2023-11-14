@@ -18,16 +18,42 @@ export function social(inputs) {
   }
 }
 
-export function riveHover(input, selector) {
+// number hover
+export function riveNHover(input, newNumber, oldNumber, selector) {
   const trigger = document.querySelector(selector)
   if(trigger) {
     trigger.addEventListener('mouseenter', () => {
-      console.log('hovered')
-      input.value = true
+      console.log('hover')
+      input.value = newNumber
     })
     trigger.addEventListener('mouseleave', () => {
-      console.log('not hovered')
+      console.log('no hover')
+      input.value = oldNumber
+    })
+  }
+}
+
+// boolean hover
+export function riveBHover(input, selector) {
+  const trigger = document.querySelector(selector)
+  if(trigger) {
+    trigger.addEventListener('mouseenter', () => {
+      if(Array.isArray(input)) {
+        input.forEach(item => {
+          item.value = true
+        })
+      } else {
+        input.value = true
+      }
+    })
+    trigger.addEventListener('mouseleave', () => {
+      if(Array.isArray(input)) {
+        input.forEach(item => {
+          item.value = false
+        })
+      } else {
       input.value = false
+      }
     })
   }
 }

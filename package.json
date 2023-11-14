@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Sumatrancat's Portfolio Website",
   "scripts": {
-    "start": "parcel src/pug/index.pug",
+    "start": "parcel src/pug/*.pug",
     "build": "parcel build src/pug/index.pug"
   },
   "devDependencies": {

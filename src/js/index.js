@@ -30,8 +30,8 @@ class App {
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
-      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isMouthUwuFlipped', 'isMoving', 'isZoom',
-        'isUpMore'],
+      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'moveRightHand',
+        'mouthType', 'isMouthSmile', 'isMouthUwuFlipped'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -77,9 +77,16 @@ class App {
     })
 
     interactions.social(this.artboardInputs.SocialResume)
-    interactions.riveHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
-    interactions.riveHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
-    interactions.riveHover(this.artboardInputs.Desk.isMonitorHovered, '#work-trigger')
+    interactions.riveBHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
+    interactions.riveBHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
+    interactions.riveBHover([
+      this.artboardInputs.Desk.isMonitorHovered,
+      this.artboardInputs.Sumatrancat.moveRightHand,
+      this.artboardInputs.Sumatrancat.isMouthSmile
+    ], '#work-trigger')
+
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 1, 0, '#resume-trigger')
+
     interactions.header(this.artboards, this.artboardInputs)
 
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
