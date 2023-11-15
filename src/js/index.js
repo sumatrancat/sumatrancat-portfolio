@@ -31,7 +31,7 @@ class App {
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'moveRightHand',
-        'mouthType', 'isMouthSmile', 'isMouthUwuFlipped'],
+        'mouthType', 'isMouthSmile', 'isMouthUwuFlipped', 'isBounce'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -77,13 +77,19 @@ class App {
     })
 
     interactions.social(this.artboardInputs.SocialResume)
-    interactions.riveBHover(this.artboardInputs.SocialResume.isResumeHovered, '#resume-trigger')
     interactions.riveBHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
+    interactions.riveBHover([
+      this.artboardInputs.SocialResume.isResumeHovered,
+      this.artboardInputs.Sumatrancat.isBounce
+    ], '#resume-trigger')
     interactions.riveBHover([
       this.artboardInputs.Desk.isMonitorHovered,
       this.artboardInputs.Sumatrancat.moveRightHand,
-      this.artboardInputs.Sumatrancat.isMouthSmile
+      this.artboardInputs.Sumatrancat.isMouthSmile,
+      this.artboardInputs.Sumatrancat.isBounce
     ], '#work-trigger')
+
+    console.log(this.artboardInputs.Sumatrancat)
 
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 1, 0, '#resume-trigger')
 
@@ -103,6 +109,17 @@ class App {
   }
 
   events() {
+    this.artboards.Sumatrancat.on(rive.EventType.RiveEvent, e => {
+      const data = e.data
+      const props = data.properties
+
+      if(props.isBounceDone) {
+        // gsap.delayedCall(.15, () => {
+          this.artboardInputs.Sumatrancat.isBounce.value = false
+        // })
+      }
+    })
+
     this.artboards.Desk.on(rive.EventType.RiveEvent, e => {
       const data = e.data
       const props = data.properties
