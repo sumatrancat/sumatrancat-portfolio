@@ -30,7 +30,8 @@ class App {
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
-      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'moveRightHand',
+      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 
+        'isRightHandOpen', 'isBothHandsOpen',
         'mouthType', 'isMouthSmile', 'isMouthUwuFlipped', 'isBounce'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
@@ -84,7 +85,7 @@ class App {
     ], '#resume-trigger')
     interactions.riveBHover([
       this.artboardInputs.Desk.isMonitorHovered,
-      this.artboardInputs.Sumatrancat.moveRightHand,
+      this.artboardInputs.Sumatrancat.isRightHandOpen,
       this.artboardInputs.Sumatrancat.isMouthSmile,
       this.artboardInputs.Sumatrancat.isBounce
     ], '#work-trigger')

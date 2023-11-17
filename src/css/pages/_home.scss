@@ -152,8 +152,11 @@
   canvas {
     width: 100%;
     position: relative;
-    pointer-events: none;
     // filter: grayscale(1);
+  }
+
+  canvas:not(.artboard-sc) {
+    pointer-events: none;
   }
 
   .page-trigger {
