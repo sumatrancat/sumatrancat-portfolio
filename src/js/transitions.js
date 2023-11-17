@@ -12,6 +12,8 @@ export function work(artboards, inputs) {
   const tl = gsap.timeline({
     onStart: () => {
       inputs.Sumatrancat.isMoving.value = false
+      inputs.Sumatrancat.mouthType.value = 2
+      inputs.Sumatrancat.isBothHandsOpen.value = true
       menuWrapper.classList.remove('menu-is-active')
     },
     onComplete: () => {
