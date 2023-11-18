@@ -78,7 +78,7 @@ class App {
     })
 
     interactions.social(this.artboardInputs.SocialResume)
-    interactions.riveBHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
+    // interactions.riveBHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
     interactions.riveBHover([
       this.artboardInputs.SocialResume.isResumeHovered,
       this.artboardInputs.Sumatrancat.isBounce

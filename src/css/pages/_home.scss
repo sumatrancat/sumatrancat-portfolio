@@ -155,7 +155,7 @@
     // filter: grayscale(1);
   }
 
-  canvas:not(.artboard-sc) {
+  canvas:not(.artboard-sc):not(.artboard-music) {
     pointer-events: none;
   }
 
