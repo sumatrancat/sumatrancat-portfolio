@@ -30,9 +30,8 @@ class App {
     this.artboardNames = ['Sumatrancat', 'Desk', 'Music', 'SocialResume']
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
-      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 
-        'isRightHandOpen', 'isBothHandsOpen',
-        'mouthType', 'isMouthSmile', 'isMouthUwuFlipped', 'isBounce'],
+      'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'isBounce', 
+        'mouthType', 'isMouthUwuFlipped', 'handType'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -85,14 +84,15 @@ class App {
     ], '#resume-trigger')
     interactions.riveBHover([
       this.artboardInputs.Desk.isMonitorHovered,
-      this.artboardInputs.Sumatrancat.isRightHandOpen,
-      this.artboardInputs.Sumatrancat.isMouthSmile,
       this.artboardInputs.Sumatrancat.isBounce
     ], '#work-trigger')
 
     console.log(this.artboardInputs.Sumatrancat)
 
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 1, 0, '#resume-trigger')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 2, 0, '#resume-trigger')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#work-trigger')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 1, 0, '#work-trigger')
 
     interactions.header(this.artboards, this.artboardInputs)
 
@@ -132,10 +132,18 @@ class App {
 
     this.artboards.Music.on(rive.EventType.RiveEvent, e => {
       const data = e.data
-      const props = data.properties
 
-      if(props.isReady) {
-        this.artboardInputs.Music.isReady.value = true
+      switch(data.name) {
+        case 'introComplete':
+          this.artboardInputs.Music.isReady.value = true
+          break
+        case 'guitarEnter':
+          this.artboardInputs.Sumatrancat.isBounce.value = true
+          this.artboardInputs.Sumatrancat.mouthType.value = 1
+          break
+        case 'guitarLeave':
+          this.artboardInputs.Sumatrancat.mouthType.value = 0
+          break
       }
     })
   }

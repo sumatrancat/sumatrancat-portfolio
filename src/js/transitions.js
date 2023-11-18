@@ -11,14 +11,21 @@ export function work(artboards, inputs) {
 
   const tl = gsap.timeline({
     onStart: () => {
+      gsap.set([$('.canvas-wrapper:not(#character)'), $('#home-title')], {
+        pointerEvents: 'none'
+      })
+
+      // we need a slight delay so the mouthType change won't overlap
+      gsap.delayedCall(.001, () => {
+        inputs.Sumatrancat.mouthType.value = 2
+        inputs.Sumatrancat.handType.value = 3
+      })
+
       inputs.Sumatrancat.isMoving.value = false
-      inputs.Sumatrancat.mouthType.value = 2
-      inputs.Sumatrancat.isBothHandsOpen.value = true
       menuWrapper.classList.remove('menu-is-active')
+
     },
     onComplete: () => {
-      // inputs.isMoving.value = true
-      console.log(isMouseMoving)
       window.addEventListener('mousemove', () => {
         isMouseMoving = true
         if(isMouseMoving) {
@@ -37,7 +44,6 @@ export function work(artboards, inputs) {
       opacity: 0,
       duration: .5,
       ease: 'power2.out',
-      pointerEvents: 'none',
       onComplete: function(e) {
         // stop all animations except SC to improve performance during zoom animation
         Object.keys(artboards).forEach(objectName => {
