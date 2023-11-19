@@ -112,27 +112,20 @@ class App {
   events() {
     this.artboards.Sumatrancat.on(rive.EventType.RiveEvent, e => {
       const data = e.data
-      const props = data.properties
-
-      if(props.isBounceDone) {
-        // gsap.delayedCall(.15, () => {
-          this.artboardInputs.Sumatrancat.isBounce.value = false
-        // })
+      if(data.name == 'bounceComplete') {
+        this.artboardInputs.Sumatrancat.isBounce.value = false
       }
     })
 
     this.artboards.Desk.on(rive.EventType.RiveEvent, e => {
       const data = e.data
-      const props = data.properties
-
-      if(props.isReady) {
+      if(data.name == 'introComplete') {
         this.artboardInputs.Desk.isReady.value = true
       }
     })
 
     this.artboards.Music.on(rive.EventType.RiveEvent, e => {
       const data = e.data
-
       switch(data.name) {
         case 'introComplete':
           this.artboardInputs.Music.isReady.value = true
