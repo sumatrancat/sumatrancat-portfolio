@@ -31,7 +31,7 @@ class App {
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'isBounce', 
-        'mouthType', 'isMouthUwuFlipped', 'handType'],
+        'mouthType', 'isMouthUwuFlipped', 'handType', 'eyesType'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -77,7 +77,6 @@ class App {
     })
 
     interactions.social(this.artboardInputs.SocialResume)
-    // interactions.riveBHover(this.artboardInputs.Music.isGuitarHovered, '#guitar-trigger')
     interactions.riveBHover([
       this.artboardInputs.SocialResume.isResumeHovered,
       this.artboardInputs.Sumatrancat.isBounce
@@ -87,12 +86,18 @@ class App {
       this.artboardInputs.Sumatrancat.isBounce
     ], '#work-trigger')
 
-    console.log(this.artboardInputs.Sumatrancat)
+    interactions.riveBHover([
+      this.artboardInputs.Sumatrancat.isBounce
+    ], '#home-title > svg')
 
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 1, 0, '#resume-trigger')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 2, 0, '#resume-trigger')
+
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#work-trigger')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 1, 0, '#work-trigger')
+
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.eyesType, 2, 0, '#home-title > svg')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#home-title > svg')
 
     interactions.header(this.artboards, this.artboardInputs)
 
@@ -132,9 +137,11 @@ class App {
           break
         case 'guitarEnter':
           this.artboardInputs.Sumatrancat.isBounce.value = true
+          this.artboardInputs.Sumatrancat.eyesType.value = 2
           this.artboardInputs.Sumatrancat.mouthType.value = 1
           break
         case 'guitarLeave':
+          this.artboardInputs.Sumatrancat.eyesType.value = 0
           this.artboardInputs.Sumatrancat.mouthType.value = 0
           break
       }

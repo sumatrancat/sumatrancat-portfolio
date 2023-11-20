@@ -82,6 +82,9 @@
     position: relative;
     left: -25%;
   }
+  #stagger-text * {
+    pointer-events: none;
+  }
 }
 
 .animated-title {
