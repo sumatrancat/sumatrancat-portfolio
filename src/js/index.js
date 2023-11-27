@@ -31,7 +31,7 @@ class App {
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'isBounce', 
-        'mouthType', 'isMouthUwuFlipped', 'handType', 'eyesType'],
+        'mouthType', 'isMouthUwuFlipped', 'handType', 'eyesType', 'eyebrowsType'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -97,7 +97,9 @@ class App {
     interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 1, 0, '#work-trigger')
 
     interactions.riveNHover(this.artboardInputs.Sumatrancat.eyesType, 2, 0, '#home-title > svg')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.eyebrowsType, 1, 0, '#home-title > svg')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#home-title > svg')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 1, 0, '#home-title > svg')
 
     interactions.header(this.artboards, this.artboardInputs)
 
@@ -137,7 +139,7 @@ class App {
           break
         case 'guitarEnter':
           this.artboardInputs.Sumatrancat.isBounce.value = true
-          this.artboardInputs.Sumatrancat.eyesType.value = 2
+          this.artboardInputs.Sumatrancat.eyesType.value = 1
           this.artboardInputs.Sumatrancat.mouthType.value = 1
           break
         case 'guitarLeave':

@@ -5,12 +5,12 @@ header
     .content
       .left
         a(href="").logo Sumatrancat 
-        //- ul.header-nav
-        //-   each item, i in nav
-        //-     li
-        //-       a(href=navLinks[i] class="nav-item" data-nav=item) #{item}
-        //-   li
-        //-     a(href="mailto:sumatrancat@gmail.com") Hire Me
+        ul.header-nav
+          each item, i in nav
+            li
+              a(href=navLinks[i] class="nav-item" data-nav=item) #{item}
+          li
+            a(href="mailto:sumatrancat@gmail.com") Hire Me
       ul.menu-nav
         -var menu = ['Home', 'About', 'Work', 'Contact']
         -var moreMenu = ['Resume', 'Twitter / X', 'YouTube', 'GitHub']
