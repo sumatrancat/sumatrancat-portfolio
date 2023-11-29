@@ -31,7 +31,7 @@ class App {
     this.artboardSelectors = ['sc', 'desk', 'music', 'social-resume']
     this.userInputs = {
       'Sumatrancat': ['isLoaded', 'translateX', 'translateY', 'isUpMore', 'isMoving', 'isBounce', 
-        'mouthType', 'isMouthUwuFlipped', 'handType', 'eyesType', 'eyebrowsType'],
+        'mouthType', 'isMouthUwuFlipped', 'handType', 'eyesType', 'eyebrowsType', 'feetType'],
       'Desk': ['isLoaded', 'isReady', 'isMonitorHovered'],
       'Music': ['isLoaded', 'isReady', 'isAudioActive', 'isGuitarHovered'],
       'SocialResume': ['isLoaded', 'isTwitterHovered', 'isYoutubeHovered', 'isGithubHovered', 'isResumeHovered']
@@ -103,6 +103,7 @@ class App {
 
     interactions.header(this.artboards, this.artboardInputs)
 
+    this.artboardInputs.Sumatrancat.feetType.value = 0
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
     gsap.delayedCall(.2, () => {
