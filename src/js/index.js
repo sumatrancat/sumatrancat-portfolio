@@ -99,11 +99,11 @@ class App {
     interactions.riveNHover(this.artboardInputs.Sumatrancat.eyesType, 2, 0, '#home-title > svg')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.eyebrowsType, 1, 0, '#home-title > svg')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#home-title > svg')
-    interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 1, 0, '#home-title > svg')
+    interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 3, 0, '#home-title > svg')
 
+    // this.artboardInputs.Sumatrancat.handType.value = 3
     interactions.header(this.artboards, this.artboardInputs)
 
-    this.artboardInputs.Sumatrancat.feetType.value = 0
     this.mouse = new mouse(this.artboardInputs.Sumatrancat)
 
     gsap.delayedCall(.2, () => {

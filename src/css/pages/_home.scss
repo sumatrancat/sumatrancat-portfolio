@@ -107,9 +107,14 @@
       display: none;
     }
   }
+
+  #rive {
+    transform: translateY(-20%);
+  }
 }
 
 @include below(sm) {
+
   #home {
     .content-wrapper {
       pointer-events: none;
@@ -149,7 +154,6 @@
   margin-left: auto;
   margin-right: auto;
   width: 22.5%; // same width as design
-  transform: translateY(-20%);
   will-change: transform;
 
   canvas {
