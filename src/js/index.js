@@ -86,20 +86,19 @@ class App {
       this.artboardInputs.Sumatrancat.isBounce
     ], '#work-trigger')
 
-    interactions.riveBHover([
-      this.artboardInputs.Sumatrancat.isBounce
-    ], '#home-title > svg')
-
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 1, 0, '#resume-trigger')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 2, 0, '#resume-trigger')
 
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#work-trigger')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 1, 0, '#work-trigger')
 
-    interactions.riveNHover(this.artboardInputs.Sumatrancat.eyesType, 2, 0, '#home-title > svg')
-    interactions.riveNHover(this.artboardInputs.Sumatrancat.eyebrowsType, 1, 0, '#home-title > svg')
+    interactions.riveBHover([
+      this.artboardInputs.Sumatrancat.isBounce
+    ], '#home-title > svg')
+    // interactions.riveNHover(this.artboardInputs.Sumatrancat.eyesType, 2, 0, '#home-title > svg')
+    // interactions.riveNHover(this.artboardInputs.Sumatrancat.eyebrowsType, 1, 0, '#home-title > svg')
     interactions.riveNHover(this.artboardInputs.Sumatrancat.mouthType, 3, 0, '#home-title > svg')
-    interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 3, 0, '#home-title > svg')
+    // interactions.riveNHover(this.artboardInputs.Sumatrancat.handType, 3, 0, '#home-title > svg')
 
     // this.artboardInputs.Sumatrancat.handType.value = 3
     interactions.header(this.artboards, this.artboardInputs)
@@ -134,6 +133,7 @@ class App {
 
     this.artboards.Music.on(rive.EventType.RiveEvent, e => {
       const data = e.data
+      console.log(data)
       switch(data.name) {
         case 'introComplete':
           this.artboardInputs.Music.isReady.value = true

@@ -17,6 +17,10 @@ export default class Mouse {
 			this.move(e)
 		})
 
+		window.addEventListener('touchmove', (e) => {
+			this.move(e)
+		})
+
 		// document.addEventListener('mouseleave', (e) => {
 		// 	this.customCursor.style.visibility = 'hidden'
 		// 	setTimeout(() => {

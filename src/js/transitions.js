@@ -66,7 +66,7 @@ export function work(artboards, inputs) {
     }, '<')
     .to(rive, {
       scale: 1.5,
-      y: '65%',
+      y: '60%',
       z: 0,
       duration: 1,
       ease: 'expo.inOut',
